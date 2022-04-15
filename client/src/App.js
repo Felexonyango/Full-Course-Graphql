@@ -1,6 +1,6 @@
 
 import './App.css'
-import CharacterList from './pages/CharacterList';
+import CharacterList from './pages/DisplayData';
 function App() {
 
   

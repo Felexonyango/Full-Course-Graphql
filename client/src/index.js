@@ -6,9 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {ApolloClient,ApolloProvider,InMemoryCache} from '@apollo/client'
 
 const client = new ApolloClient({
-  //from https://apis.guru/graphql-apis/
 
-  uri:"https://countries.trevorblades.com/",
+  uri:"http://localhost:4000/graphql",
   
   cache:new InMemoryCache()
  })
