@@ -50,7 +50,7 @@ function DisplayData() {
 
   const { data, loading, refetch } = useQuery(QUERY_ALL_USERS);
   const { data: movieData } = useQuery(QUERY_ALL_MOVIES);
-  
+
   const [fetchMovie,{ data: movieSearchedData, error: movieError },
   ] = useLazyQuery(GET_MOVIE_BY_NAME);
 

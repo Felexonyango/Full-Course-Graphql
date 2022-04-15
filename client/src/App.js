@@ -1,13 +1,13 @@
 
 import './App.css'
-import CharacterList from './pages/DisplayData';
+import DisplayData from './pages/DisplayData';
 function App() {
 
   
   return (
     <div className="App">
    Hello apollo
-   <CharacterList/>
+   <DisplayData/>
     </div>
   );
 }
