@@ -4,7 +4,7 @@ import { LOAD_USER } from "./Queries";
 
 
 function GetAllUser() {
-  const { data,loading } = useQuery(LOAD_USER)
+  const { data,loading,error } = useQuery(LOAD_USER)
  
 
   const[users,setUsers]= useState([]);
@@ -12,18 +12,17 @@ function GetAllUser() {
  
   useEffect(()=>{
     if(data){
-      setUsers(data.getAllUsers)
-console.log(data)
+      setUsers(data.getAllUsers[0])
+
 
     }
 
   },[data])
  
 
-  
-  if (loading) {
-    return <h1> DATA IS LOADING...</h1>;
-  }
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
 
   return (
     <div>

@@ -1,14 +1,16 @@
 
 import './App.css'
+import Form from './pages/Form';
 import GetAllUser from './pages/GetAllUser';
 function App() {
 
   
   return (
     <div className="App">
-   Hello apollo
-   {""}
+  
+ 
    <GetAllUser/>
+   <Form/>
     </div>
   );
 }
