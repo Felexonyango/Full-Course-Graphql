@@ -3,13 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {ApolloClient,ApolloProvider,InMemoryCache} from '@apollo/client'
+import {ApolloClient,ApolloProvider,InMemoryCache,createHttpLink,from} from '@apollo/client'
+import {onError} from '@apollo/client/link/error'
+const errorLink = onError(({graphQLErrors, networkError})=>{
+  if(graphQLErrors){
+    graphQLErrors.map(({message,location,path})=>{
+      alert(`Graphql Error ${message}`)
+    })
+  }
+})
 
-const client = new ApolloClient({
+const link =from([
+  errorLink,
+ new createHttpLink({ uri:"http://localhost:5000/graphql"}),
 
-  uri:"http://localhost:4000/graphql",
-  
-  cache:new InMemoryCache()
+])
+const client = new ApolloClient({  
+  cache:new InMemoryCache(),
+  link:link
  })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
